@@ -1,0 +1,22 @@
+<%= form_for @panswer, :url => answers_path do |f| %>
+  <% if @panswer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@panswer.errors.count, "error") %> prohibited this panswer from being saved:</h2>
+
+      <ul>
+      <% @panswer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :p_answer %><br />
+    <%= f.text_field :p_answer %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

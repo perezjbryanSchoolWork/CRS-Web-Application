@@ -1,0 +1,2 @@
+For my Web Programming and Data Management class in a group we had to create a Classroom Response System web application for homework on top of the Rails framework. Required basic functionality of a front-end for the students for voting and viewing the results. A back-end page for the teacher was also required to edit the questions. We were also required to deploy it to Heroku a rails webhost. Links to application:  students front-end: http://vivid-sky-145.heroku.com/  teacher back-end: http://vivid-sky-145.heroku.com/admin
+http://vivid-sky-145.heroku.com/admin

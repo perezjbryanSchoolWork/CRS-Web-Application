@@ -1,0 +1,51 @@
+<%= content_for :styles do %>
+  <style type="text/css" media="screen">
+    body { background-color: #EEE; }
+    h1 { background-color: red; font-size: 2em; height: 50px; text-align: center; padding-top: 10px; }
+    .wrapper { border: 1px dotted #CCC; width: 800px; padding: 10px; }
+    .row_container div, .answers div { display: inline; }
+    .row_container ul, .answers ul { width: 500px; display: inline-block; }
+  </style>
+<% end %>
+
+<h1 style="color: black;">Welcome Administrator</h1>
+
+<div id="admin_panel">
+  <div id="question_headers">
+    <ul>
+      <li>Questions</li>
+      <li>Edit Options</li>
+    </ul>
+  </div>
+  <% counter = 1 %>
+  <% @questions.each do |q| %>
+    <div class="wrapper">
+      <div class="questions">
+        <div class="row_container">
+          <div><%= counter %>)&nbsp;<% counter = counter + 1 %><%= q.question %></div>
+          <div class="edit_options">
+            <ul>
+              <li><%= link_to "Edit", edit_question_path(q), %></li>
+              <li><%= link_to "Delete", question_path(q), :confirm => "Are you sure?", :method => :delete %></li>
+              <li><%= link_to "Add a new question", new_question_path %></li>
+              <li><%= link_to "Reset the count", '/panswers/reset', :confirm => "Are you sure you want to reset?" %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="answers">
+        <% answer_counter = 1 %>
+        <% q.panswers.each do |a| %>
+          <div><%= "Answer ##{answer_counter}: " %><% answer_counter = answer_counter + 1 %><%= a.p_answer %></div>
+          <div class="edit_options">
+            <ul>
+              <li><%= link_to "Edit", edit_answer_path(a) %></li>
+              <li><%= link_to "Delete", answer_path(a), :confirm => "Are you sure?", :method => :delete %></li>
+            </ul>
+          </div>
+          <br />
+        <% end %> 
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

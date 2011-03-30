@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRS</title>
+  <%= stylesheet_link_tag(
+    'scaffold.css',
+    'application.css'
+  ) %>
+  <%= javascript_include_tag(
+    'jquery-1.5.min.js',
+    'jquery.form.js'
+  ) %>
+  <%= csrf_meta_tag %>
+  <%= yield :styles %>
+  <%= yield :javascript %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
